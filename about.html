@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About & Method · 方法与口径 · Hong Kong Urban Explorer</title>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<header data-nav></header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap page-head__inner">
+      <div>
+        <span class="eyebrow">About &amp; method</span>
+        <h1>方法与口径</h1>
+        <p>所有数字来自交付包中的清洗版数据，本站只做聚合与呈现，不重新清洗、不重新估算。以下四条口径决定了图上每一个数字。</p>
+      </div>
+      <div class="page-head__meta">
+        <span class="meta-chip">快照 <b>2026-11-05</b></span>
+        <span class="meta-chip">9,127 条挂牌</span>
+        <span class="meta-chip">18 生活圈 / 7 校区</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="padding-top:0">
+    <div class="wrap">
+      <div class="tiles">
+        <div class="tile"><div class="tile__label">房源样本</div><div class="tile__value">9,127</div><div class="tile__note">28Hse 在租挂牌，已过滤 1,000–100,000</div></div>
+        <div class="tile"><div class="tile__label">生活圈</div><div class="tile__value">18</div><div class="tile__note">以港铁站组合为地图单位</div></div>
+        <div class="tile"><div class="tile__label">通勤路线</div><div class="tile__value">37</div><div class="tile__note">MTR 官方路线 API 采集</div></div>
+        <div class="tile"><div class="tile__label">有坐标房源</div><div class="tile__value">6,804</div><div class="tile__note">地图打点仅用 coord_ok = True</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="caveats">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Four rules</span>
+        <h2>四条必须遵守的口径</h2>
+        <p>违反其中任何一条，图上的数字就会错。</p>
+      </div>
+      <div class="caveat-grid">
+        <article class="caveat reveal">
+          <div class="caveat__num">RULE 01</div>
+          <h3>九龍塘不是学生租房区</h3>
+          <p>九龍塘中位月租 <b>HK$46,000</b>，是 41 校网大户型／豪宅，不是学生住的地方。校区统计因此提供两列：含豪宅区 HK$23,800 与剔除豪宅区 <b>HK$20,500</b>（中大）。对外展示一律使用「剔除」列，或明确标注九龍塘为「校址 / 豪宅区」。</p>
+        </article>
+        <article class="caveat reveal">
+          <div class="caveat__num">RULE 02</div>
+          <h3>呎租只用「實用面积」</h3>
+          <p>建筑面面积样本只有 252 条，混算会低估约 43%。站内所有呎租字段直接使用数据方的 <code>psf_hkd</code>，其口径已限定为實用面积。</p>
+        </article>
+        <article class="caveat reveal">
+          <div class="caveat__num">RULE 03</div>
+          <h3>床位与整租不能混算</h3>
+          <p>整租 9,021 条，中位 <b>HK$17,200</b>；床位／太空舱 142 条，中位 <b>HK$4,700</b>，差 3.7 倍。做排名时要么只用整租，要么在图上标明房型。</p>
+        </article>
+        <article class="caveat reveal">
+          <div class="caveat__num">RULE 04</div>
+          <h3>科大餐饮数据不可用</h3>
+          <p>科大周边仅 24 个 OSM POI（新界郊野覆盖不足），<code>low_sample_flag = 1</code>，任何餐饮排名都不应纳入科大。本站以「—」呈现并标注低样本。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap split split--about">
+      <div class="prose">
+        <span class="eyebrow">Data sources</span>
+        <h2>数据从哪里来</h2>
+        <p>房源：28Hse 在租挂牌，2026-11-05 快照，清洗后 9,127 行 × 20 列。分区（district）为 28Hse 的 31 个细粒度分区，<b>不作为地图单位</b>；地图与统计以 18 个「生活圈」（港铁站组合）为基本单元。</p>
+        <p>通勤：MTR 官方路线 API，逐校区逐生活圈采集，得到 37 条路线，含港铁分钟、换乘步行、换乘次数、学生八达通票价、首末班车。</p>
+        <p>餐饮：OpenStreetMap POI，按校区周边 800m 联合面积统计密度与平价占比，并以 <code>low_sample_flag</code> 标记不可排名样本。</p>
+        <h3>五级色阶的定义</h3>
+        <p>按每个生活圈的「中位月租」分五档，颜色只表示高低，不表示好坏；每级同时给出区间与站点数以文字兜底，避免只用颜色传达信息。</p>
+        <div id="levelRows" style="margin-top:8px"></div>
+      </div>
+
+      <div class="panel-card">
+        <div class="panel-card__head">
+          <div>
+            <h3>建站与视觉</h3>
+            <p>这一版交付的内容</p>
+          </div>
+        </div>
+        <div class="tl-steps">
+          <div class="tl-step">
+            <div class="tl-step__when">视觉系统</div>
+            <div><h4>港式城市插画 + 数据可视化</h4><p>米白纸感底色、深海蓝主色、鼠尾草绿辅助色；12px 圆角、柔和阴影、统一线性图标。房源租金统一使用五级色阶。</p></div>
+          </div>
+          <div class="tl-step">
+            <div class="tl-step__when">网页</div>
+            <div><h4>7 个页面</h4><p>首页、探索地图、租金报告、校区、房源、生活指南、方法页。静态 HTML / CSS / JS，可直接打开，无需构建。</p></div>
+          </div>
+          <div class="tl-step">
+            <div class="tl-step__when">地图</div>
+            <div><h4>Leaflet + 在线底图</h4><p>真实坐标打点，颜色与大小编码租金与房源量；密集区域气泡做像素级避让，并以小圆点标出真实位置。</p></div>
+          </div>
+          <div class="tl-step">
+            <div class="tl-step__when">数据</div>
+            <div><h4>直接读取交付包 CSV</h4><p>由 <code>build_data.py</code> 转换为前端 JSON，不做任何重新清洗或估算；所有图表数字均来自同一份数据。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="padding-bottom:96px">
+    <div class="wrap">
+      <div class="panel-card" style="background:rgba(239,230,214,.4);border-color:rgba(221,206,179,.6)">
+        <h3 style="font-size:18px;margin-bottom:10px">使用前请知悉</h3>
+        <p style="font-size:13.5px;line-height:1.85;color:#5c5343;max-width:840px">
+          本站为学术研究性质的可视化原型，房源信息为 2026-11-05 的快照，可能已下架或调价；所有挂牌均需回到原始房源页核实。
+          地图底图默认使用 OpenStreetMap 镜像，不可用时自动降级到 Esri Light Gray（HERE / Garmin 数据）或矢量示意底图；POI 来自 OpenStreetMap 贡献者。港铁时间与票价为 MTR 官方路线数据，不包含接驳巴士与步行时间。
+          页面中的「示意」地图（首页与 CTA 区域）为视觉插画，不代表真实地理精度；真实坐标与校区位置请以 Explore Map 为准。
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-footer></footer>
+
+<script src="data/meta.js"></script>
+<script src="data/areas.js"></script>
+<script src="data/campuses.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function () {
+  const { data, fmt } = window.HKUE;
+  document.querySelector("#levelRows").innerHTML = data.meta.levels.map((l) => `
+    <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:13px">
+      <i style="width:26px;height:10px;border-radius:3px;background:${l.color};display:block"></i>
+      <span style="width:52px;font-weight:600;color:var(--ink-deep)">L${l.level}</span>
+      <span style="flex:1;color:#4A5C63">${l.range}</span>
+      <span style="color:var(--muted)">${data.meta.levelsCount[String(l.level)]} 个</span>
+    </div>`).join("");
+})();
+</script>
+</body>
+</html>

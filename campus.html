@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campuses · 校区 · Hong Kong Urban Explorer</title>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<header data-nav></header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap page-head__inner">
+      <div>
+        <span class="eyebrow">Campuses</span>
+        <h1>从校门出发</h1>
+        <p>选一所校区，看它 20 分钟港铁圈内的生活圈：中位租金、呎租、可负担比例与餐饮密度，一屏对照。</p>
+      </div>
+      <div class="page-head__meta">
+        <span class="meta-chip">7 所校区</span>
+        <span class="meta-chip">37 条通勤路线</span>
+        <span class="meta-chip">租金口径：<b>剔除豪宅区</b></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="padding-top:0">
+    <div class="wrap">
+      <div class="tabs" id="campusTabs" style="margin-bottom:22px"></div>
+      <div class="campus-hero">
+        <article class="campus-main" id="campusMain"></article>
+        <div class="campus-side" id="campusSide"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap split split--half">
+      <div class="panel-card">
+        <div class="panel-card__head">
+          <div>
+            <h3>周边生活圈</h3>
+            <p>港铁分钟数 · 中位月租 · 颜色为五级色阶</p>
+          </div>
+        </div>
+        <div class="pc-list" id="campusAreas"></div>
+      </div>
+      <div class="panel-card">
+        <div class="panel-card__head">
+          <div>
+            <h3>预算曲线</h3>
+            <p>校区覆盖生活圈内，月租 ≤ 预算的挂牌占比</p>
+          </div>
+        </div>
+        <div id="budgetCurve"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="padding-bottom:96px">
+    <div class="wrap">
+      <div class="panel-card">
+        <div class="panel-card__head">
+          <div>
+            <h3>七所校区横向对比</h3>
+            <p>全部采用「剔除豪宅区」口径；科大餐饮为低样本，不参与排名</p>
+          </div>
+          <a class="link-arrow" href="map.html">回到地图 <span>→</span></a>
+        </div>
+        <div style="overflow-x:auto"><table class="compare-table" id="compareTable"></table></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-footer></footer>
+
+<script src="data/meta.js"></script>
+<script src="data/areas.js"></script>
+<script src="data/campuses.js"></script>
+<script src="data/listings.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/campus.js"></script>
+</body>
+</html>

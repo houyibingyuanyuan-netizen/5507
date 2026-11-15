@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Listings · 房源 · Hong Kong Urban Explorer</title>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<header data-nav></header>
+
+<main>
+  <section class="page-head" style="padding-bottom:24px">
+    <div class="wrap page-head__inner">
+      <div>
+        <span class="eyebrow">Listings</span>
+        <h1>9,127 条在租挂牌</h1>
+        <p>来自 28Hse 的清洗版快照（2026-11-05）。价格、面积、呎租均为原始挂牌字段，未做二次估算；点开可回到原始房源页。</p>
+      </div>
+      <div class="page-head__meta">
+        <span class="meta-chip">整租 <b>9,021</b></span>
+        <span class="meta-chip">床位 <b>142</b></span>
+        <span class="meta-chip">有坐标 <b>6,804</b></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:8px">
+    <div class="wrap">
+      <div class="filterbar">
+        <input type="search" id="q" placeholder="搜索标题 / 地区，如「旺角」「studio」" aria-label="搜索房源">
+        <select id="areaSel" aria-label="生活圈"><option value="">全部生活圈</option></select>
+        <select id="typeSel" aria-label="房型">
+          <option value="">全部房型</option>
+          <option value="0">整租</option>
+          <option value="1">床位 / 太空舱</option>
+        </select>
+        <select id="budgetSel" aria-label="预算">
+          <option value="999999">不限预算</option>
+          <option value="8000">≤ HK$8,000</option>
+          <option value="12000">≤ HK$12,000</option>
+          <option value="15000">≤ HK$15,000</option>
+          <option value="20000">≤ HK$20,000</option>
+          <option value="30000">≤ HK$30,000</option>
+        </select>
+        <select id="sortSel" aria-label="排序">
+          <option value="price-asc">月租由低到高</option>
+          <option value="price-desc">月租由高到低</option>
+          <option value="psf-asc">呎租由低到高</option>
+          <option value="size-desc">面积由大到小</option>
+        </select>
+        <span class="filterbar__count"><b id="count">—</b> 条结果</span>
+      </div>
+
+      <div class="lgrid" id="grid" style="margin-top:20px"></div>
+      <div style="text-align:center;margin-top:36px">
+        <button class="btn btn--ghost" id="more">加载更多</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-footer></footer>
+
+<script src="data/meta.js"></script>
+<script src="data/areas.js"></script>
+<script src="data/campuses.js"></script>
+<script src="data/listings.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/explore.js"></script>
+</body>
+</html>

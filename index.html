@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hong Kong Urban Explorer · 港八大租房图鉴</title>
+<meta name="description" content="用一张地图看懂香港 18 个生活圈的租金、通勤与生活便利，为港八大硕士生准备的租房信息可视化平台。">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/home.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='23' fill='%23244C61'/%3E%3Cpath d='M31 33V14.5l-9 9.5h4.4' stroke='%23F7F7F2' stroke-width='3' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+<body>
+<header data-nav></header>
+
+<main>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <span class="eyebrow">2026 / 27 · 港八大硕士生租房</span>
+        <h1 class="hero__title">
+          Find Your <span class="hl">Home</span><br>
+          in Hong Kong
+        </h1>
+        <p class="hero__lede">
+          用一张地图看懂 18 个生活圈的<strong>租金、通勤与生活便利</strong>。
+          9,127 条真实在租挂牌，为港八大硕士生准备的租房信息可视化平台。
+        </p>
+
+        <form class="search" role="search" onsubmit="location.href='map.html';return false;">
+          <span class="search__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4" stroke-linecap="round"/></svg>
+          </span>
+          <input class="search__input" type="search" placeholder="Search university, district or MTR" aria-label="搜索学校、地区或地点">
+          <button class="btn btn--primary btn--sm search__btn" type="submit">搜索</button>
+        </form>
+
+        <div class="hero__chips" aria-label="快速入口">
+          <a class="quick" href="campus.html?c=HKU">港大 HKU</a>
+          <a class="quick" href="campus.html?c=CUHK">中大 CUHK</a>
+          <a class="quick" href="campus.html?c=CityU%2FHKBU">城大 / 浸大</a>
+          <a class="quick" href="campus.html?c=PolyU">理大 PolyU</a>
+          <a class="quick quick--more" href="campus.html">全部 7 所 →</a>
+        </div>
+
+        <dl class="hero__stats">
+          <div class="stat">
+            <dt class="stat__value num" data-count="9127">9,127</dt>
+            <dd class="stat__label">在租挂牌</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__value num" data-count="18">18</dt>
+            <dd class="stat__label">生活圈</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__value num" data-count="7">7</dt>
+            <dd class="stat__label">港八大校区</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__value num"><span class="hk">HK$</span>12,800</dt>
+            <dd class="stat__label">最低中位月租</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="hero__art">
+        <div class="map-sheet" id="heroSheet">
+          <div class="map-sheet__ticks"><span></span><span></span><span></span><span></span></div>
+          <div class="hero__poster" id="posterHost"></div>
+        </div>
+
+        <div class="float-card float-card--a" data-level="1">
+            <div class="float-card__top"><i class="dot" style="background:#6FCF97"></i><span>深水埗 / 石硤尾</span></div>
+            <div class="float-card__value"><span class="hk">HK$</span>12,800<span class="unit">/ 月</span></div>
+            <div class="float-card__meta">641 条挂牌 · 呎租 44.8</div>
+          </div>
+
+          <div class="float-card float-card--b" data-level="5">
+            <div class="float-card__top"><i class="dot" style="background:#EB5757"></i><span>九龍塘</span></div>
+            <div class="float-card__value"><span class="hk">HK$</span>46,000<span class="unit">/ 月</span></div>
+            <div class="float-card__meta">校址 / 豪宅区 · 非学生租房区</div>
+          </div>
+
+          <div class="float-legend">
+            <span class="float-legend__title">Median rent</span>
+            <div class="float-legend__bar">
+              <i style="background:#6FCF97"></i><i style="background:#56CCF2"></i><i style="background:#F2C94C"></i><i style="background:#F2994A"></i><i style="background:#EB5757"></i>
+            </div>
+            <div class="float-legend__ends"><span>12.8K</span><span>46K</span></div>
+          </div>
+
+        <p class="hero__caption">维多利亚港 · 港铁线路与港八大校区分布示意　<span class="muted">现实坐标见 Explore Map</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KEY FINDINGS ================= -->
+  <section class="section section--tight" id="findings">
+    <div class="wrap">
+      <div class="findings">
+        <article class="find reveal">
+          <span class="find__idx">01</span>
+          <h3>租金鸿沟 <span class="num">3.6×</span></h3>
+          <p>最便宜的深水埗／石硤尾与兆康／屯門中位月租同为 <b>HK$12,800</b>；最高的九龍塘为 <b>HK$46,000</b>——但它是 41 校网豪宅区，不租给学生。</p>
+          <a class="link-arrow" href="insights.html">看完整租金排行 <span>→</span></a>
+        </article>
+        <article class="find reveal">
+          <span class="find__idx">02</span>
+          <h3>七城可负担</h3>
+          <p>18 个生活圈中有 <b>7 个</b>中位月租低于 HK$16,000：九龙四区（深水埗、太子、旺角、土瓜灣）与新界西三区（兆康／屯門、天水圍、元朗）。</p>
+          <a class="link-arrow" href="map.html">在地图上按色阶筛选 <span>→</span></a>
+        </article>
+        <article class="find reveal">
+          <span class="find__idx">03</span>
+          <h3>床位 ≠ 整租</h3>
+          <p>整租中位 <b>HK$17,200</b>（9,021 条），床位／太空舱中位仅 <b>HK$4,700</b>（142 条），相差 3.7 倍，排名请勿混算。</p>
+          <a class="link-arrow" href="about.html#caveats">了解四条口径 <span>→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LEVEL LEGEND ================= -->
+  <section class="section" id="scale">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Five-level rent scale</span>
+        <h2>用颜色代替标注</h2>
+        <p>按每个生活圈的「中位月租」分五级着色。颜色只表示租金高低，不表示好坏；数字仍完整标注在图例与卡片上。</p>
+      </div>
+
+      <div class="scale" id="scaleRail"></div>
+
+      <div class="scale-foot" id="scaleFoot"></div>
+    </div>
+  </section>
+
+  <!-- ================= UNIVERSITIES ================= -->
+  <section class="section" id="universities" style="background:linear-gradient(180deg,rgba(220,233,234,.34),rgba(220,233,234,0) 70%)">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Featured universities</span>
+        <h2>七所校区，七种租法</h2>
+        <p>按「剔除豪宅区」口径的校区周边中位月租；同一座城市，通勤 20 分钟可以差 HK$8,000。</p>
+      </div>
+      <div class="uni-grid" id="uniGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="cta">
+        <div class="cta__bg" id="ctaPoster" aria-hidden="true"></div>
+        <div class="cta__inner">
+          <span class="eyebrow" style="color:#A8C4B6">Explore the city</span>
+          <h2>Explore Hong Kong.<br>Find your home.</h2>
+          <p>从一张五级色阶的地图开始，把租金、通勤与生活便利放进同一个画面。</p>
+          <div class="cta__actions">
+            <a class="btn btn--light" href="map.html">打开探索地图 <span class="btn__arrow">→</span></a>
+            <a class="btn btn--ghost" style="color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.28)" href="insights.html">查看租金报告</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-footer></footer>
+
+<script src="data/meta.js"></script>
+<script src="data/areas.js"></script>
+<script src="data/campuses.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/art.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>

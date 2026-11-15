@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explore Map · Hong Kong Urban Explorer</title>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/vendor/leaflet.css">
+<link rel="stylesheet" href="assets/css/map.css">
+</head>
+<body class="page-map">
+<header data-nav></header>
+
+<main class="explorer">
+  <!-- ============ LEFT: filters ============ -->
+  <aside class="rail" aria-label="筛选">
+    <div class="rail__head">
+      <h1 class="rail__title">Explore Map</h1>
+      <p class="rail__sub">18 个生活圈 · 按中位月租五级着色</p>
+      <button class="rail__toggle" id="railToggle" aria-expanded="false">筛选条件</button>
+    </div>
+
+    <div class="rail__body">
+      <section class="fgroup">
+        <h2 class="fgroup__title">校区 <span>University</span></h2>
+        <div class="chips" id="campusChips"></div>
+      </section>
+
+      <section class="fgroup">
+        <h2 class="fgroup__title">通勤时间 <span>Commute</span></h2>
+        <div class="chips" id="commuteChips">
+          <button class="chip is-on" data-min="0">不限</button>
+          <button class="chip" data-min="15">≤ 15 分钟</button>
+          <button class="chip" data-min="30">≤ 30 分钟</button>
+          <button class="chip" data-min="45">≤ 45 分钟</button>
+        </div>
+        <p class="fgroup__hint" id="commuteHint">选择校区后可限定港铁通勤时长</p>
+      </section>
+
+      <section class="fgroup">
+        <h2 class="fgroup__title">预算上限 <span>Monthly rent</span></h2>
+        <div class="range">
+          <input type="range" id="rentRange" min="12000" max="50000" step="1000" value="50000" aria-label="预算上限">
+          <output id="rentOut">不限</output>
+        </div>
+        <div class="range__scale"><span>HK$12K</span><span>HK$50K</span></div>
+      </section>
+
+      <section class="fgroup">
+        <h2 class="fgroup__title">房型 <span>Room type</span></h2>
+        <div class="seg" id="typeSeg">
+          <button class="seg__btn is-on" data-type="all">全部</button>
+          <button class="seg__btn" data-type="0">整租</button>
+          <button class="seg__btn" data-type="1">床位</button>
+        </div>
+      </section>
+
+      <section class="fgroup">
+        <h2 class="fgroup__title">地图视图 <span>Map view</span></h2>
+        <div class="seg" id="viewSeg">
+          <button class="seg__btn is-on" data-view="rent">租金视图</button>
+          <button class="seg__btn" data-view="commute">通勤视图</button>
+        </div>
+        <p class="fgroup__hint" id="viewHint">颜色 = 生活圈中位月租（五级）· 圆大小 = 挂牌量</p>
+        <label class="tswitch">
+          <input type="checkbox" id="pointsChk">
+          <span class="tswitch__box"></span>
+          <span class="tswitch__text">叠加挂牌点<em>6,804 条有坐标，抽样显示</em></span>
+        </label>
+      </section>
+
+      <div class="rail__note">
+        <strong>口径提醒</strong>
+        颜色只表示租金高低，不代表好坏。九龍塘为校址 / 豪宅区，不参与学生租房排名。
+      </div>
+      <a class="rail__link" href="about.html#caveats">查看 4 条数据局限 →</a>
+    </div>
+  </aside>
+
+  <!-- ============ CENTER: map ============ -->
+  <section class="mapwrap" id="mapwrap">
+    <div id="map" role="application" aria-label="香港生活圈租金地图"></div>
+    <div class="map-wash" aria-hidden="true"></div>
+    <div class="map-grain" aria-hidden="true"></div>
+
+    <div class="map-top">
+      <div class="legend" id="legend"></div>
+      <div class="map-top__right">
+        <div class="result-pill"><b id="resultCount">18</b> 个生活圈</div>
+      </div>
+    </div>
+
+    <div class="map-bottom">
+      <div class="tl" id="timeline">
+        <span class="tl__label">通勤圈</span>
+        <div class="tl__bar" id="tlBar"></div>
+      </div>
+      <div class="map-hint" id="mapHint">滚轮放大 · 点击圆点查看生活圈</div>
+    </div>
+  </section>
+
+  <!-- ============ RIGHT: details ============ -->
+  <aside class="panel" id="panel" aria-label="详情"></aside>
+</main>
+
+<footer data-footer></footer>
+
+<script src="data/meta.js"></script>
+<script src="data/areas.js"></script>
+<script src="data/campuses.js"></script>
+<script src="data/listings.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/vendor/leaflet.js"></script>
+<script src="assets/js/map.js"></script>
+</body>
+</html>

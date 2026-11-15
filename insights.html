@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rental Insights · 租金报告 · Hong Kong Urban Explorer</title>
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+<header data-nav></header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap page-head__inner">
+      <div>
+        <span class="eyebrow">Rental insights</span>
+        <h1>租金报告</h1>
+        <p>把 9,127 条在租挂牌压成 18 个生活圈与 7 所校区的横截面：谁最便宜、贵在哪里、钱花在呎租还是面积上。</p>
+      </div>
+      <div class="page-head__meta">
+        <span class="meta-chip">数据快照 <b>2026-11-05</b></span>
+        <span class="meta-chip">18 个生活圈</span>
+        <span class="meta-chip">呎租仅计「實用」</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="padding-top:0">
+    <div class="wrap">
+      <div class="tiles" id="tiles"></div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap split split--rank">
+      <div class="panel-card">
+        <div class="panel-card__head">
+          <div>
+            <h3>18 个生活圈 · 中位月租排行</h3>
+            <p>颜色 = 五级色阶；灰条为全样本中位月租，便于对照</p>
+          </div>
+          <span class="tag">整租 + 床位混合</span>
+        </div>
+        <div class="rank" id="rankBars"></div>
+      </div>
+      <div style="display:grid;gap:20px">
+        <div class="panel-card">
+          <div class="panel-card__head">
+            <div>
+              <h3>租金 × 呎租</h3>
+              <p>谁贵在面积、谁贵在单价</p>
+            </div>
+          </div>
+          <div class="scatter" id="scatter"></div>
+          <p class="muted" style="font-size:11.5px;margin-top:16px;line-height:1.7">
+            右上角是「贵且单价高」的港岛核心区；右下角多为新界大单位。呎租只统计「實用」面积。
+          </p>
+        </div>
+
+        <div class="panel-card">
+          <div class="panel-card__head">
+            <div><h3>三个读数提示</h3></div>
+          </div>
+          <ul style="display:grid;gap:12px">
+            <li style="display:flex;gap:10px;font-size:12.5px;line-height:1.7;color:#4A5C63"><span class="tag tag--sage" style="height:20px">01</span><span>九龍塘 HK$46,000 是 41 校网豪宅，<b>不是学生市场</b>；中大因此用「剔除豪宅区」口径 HK$20,500。</span></li>
+            <li style="display:flex;gap:10px;font-size:12.5px;line-height:1.7;color:#4A5C63"><span class="tag tag--sage" style="height:20px">02</span><span>呎租高不等于总价高：港岛区呎租 56–64 但单位面积小；新界区呎租 29–33，面积却大得多。</span></li>
+            <li style="display:flex;gap:10px;font-size:12.5px;line-height:1.7;color:#4A5C63"><span class="tag tag--sage" style="height:20px">03</span><span>所有中位数与占比均取自交付包汇总口径，未按房源明细重算。</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap split split--half">
+      <div class="panel-card">
+        <div class="panel-card__head">
+          <div>
+            <h3>挂牌价格分布</h3>
+            <p>9,127 条挂牌按月租分箱，颜色对应色阶</p>
+          </div>
+        </div>
+        <div class="hist" id="hist"></div>
+      </div>
+      <div class="panel-card">
+        <div class="panel-card__head">
+          <div>
+            <h3>房型结构</h3>
+            <p>床位与整租不能混算</p>
+          </div>
+        </div>
+        <div id="typeCompare"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="padding-bottom:96px">
+    <div class="wrap">
+      <div class="panel-card">
+        <div class="panel-card__head">
+          <div>
+            <h3>从校区出发的港铁通勤</h3>
+            <p>每所校区到达最近生活圈的分钟数（学生八达通口径，来源：MTR 官方路线 API）</p>
+          </div>
+          <a class="link-arrow" href="campus.html">按校区细看 <span>→</span></a>
+        </div>
+        <div id="commuteBars"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-footer></footer>
+
+<script src="data/meta.js"></script>
+<script src="data/areas.js"></script>
+<script src="data/campuses.js"></script>
+<script src="data/listings.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/insights.js"></script>
+</body>
+</html>
